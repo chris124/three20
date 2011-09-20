@@ -208,9 +208,15 @@ static const NSInteger kActivityLabelTag          = 96;
     self.title = _photoSource.title;
 
   } else {
-    self.title = [NSString stringWithFormat:
-                  TTLocalizedString(@"%d of %d", @"Current page in photo browser (1 of 10)"),
-                  _centerPhotoIndex+1, _photoSource.numberOfPhotos];
+    NSString *format = TTLocalizedString(@"%d of %d", @"Current page in photo browser (1 of 10)");
+      if (format) {
+          self.title = [NSString stringWithFormat:
+                        format,
+                        _centerPhotoIndex+1, _photoSource.numberOfPhotos];
+
+      } else {
+          self.title = _photoSource.title;
+      }
   }
 
   if (![self.ttPreviousViewController isKindOfClass:[TTThumbsViewController class]]) {

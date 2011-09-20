@@ -44,6 +44,8 @@ typedef enum {
   UIActivityIndicatorView*  _activityView;
 }
 
+@property (nonatomic, retain)    UILabel*    statusLabel;
+
 - (void)setCurrentDate;
 - (void)setUpdateDate:(NSDate*)date;
 - (void)setStatus:(TTTableHeaderDragRefreshStatus)status;
